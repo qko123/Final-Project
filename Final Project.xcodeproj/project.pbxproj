@@ -14,6 +14,7 @@
 		F1DFBACA292D20E2004BE910 /* Final_ProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DFBAC9292D20E2004BE910 /* Final_ProjectTests.swift */; };
 		F1DFBAD4292D20E2004BE910 /* Final_ProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DFBAD3292D20E2004BE910 /* Final_ProjectUITests.swift */; };
 		F1DFBAD6292D20E2004BE910 /* Final_ProjectUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DFBAD5292D20E2004BE910 /* Final_ProjectUITestsLaunchTests.swift */; };
+		F1DFBAE329350CEB004BE910 /* Kills.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DFBAE229350CEB004BE910 /* Kills.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		F1DFBACF292D20E2004BE910 /* Final ProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Final ProjectUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1DFBAD3292D20E2004BE910 /* Final_ProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Final_ProjectUITests.swift; sourceTree = "<group>"; };
 		F1DFBAD5292D20E2004BE910 /* Final_ProjectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Final_ProjectUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F1DFBAE229350CEB004BE910 /* Kills.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kills.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 		F1DFBAAC292D20E1004BE910 = {
 			isa = PBXGroup;
 			children = (
+				F1DFBAE229350CEB004BE910 /* Kills.swift */,
 				F1DFBAB7292D20E1004BE910 /* Final Project */,
 				F1DFBAC8292D20E2004BE910 /* Final ProjectTests */,
 				F1DFBAD2292D20E2004BE910 /* Final ProjectUITests */,
@@ -257,6 +260,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1DFBAE329350CEB004BE910 /* Kills.swift in Sources */,
 				F1DFBABB292D20E1004BE910 /* ContentView.swift in Sources */,
 				F1DFBAB9292D20E1004BE910 /* Final_ProjectApp.swift in Sources */,
 			);

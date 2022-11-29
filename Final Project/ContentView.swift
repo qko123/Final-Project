@@ -8,21 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var kills = 0
-    @State private var errors = 0
-    @State private var attempts = 0
-    @State private var percentage = 0.0
     var body: some View {
             NavigationView {
                 VStack {
                     Text("VB Hitting % Calculator").bold().font(.title)
                         .padding()
-                    Image("volleyball")
+                    Image("player")
                         .resizable().frame(width: 350, height: 350)
                 NavigationLink("What is A Hitting Percentage?", destination: InstructionsView())
                         .bold()
                         .padding()
-                    NavigationLink("Calculate Hitting Percentage", destination: CalculateView())
+                    NavigationLink("Calculate Hitting Percentage", destination: Calculate())
                             .bold()
                             .padding()
                 }
@@ -52,12 +48,5 @@ struct InstructionsView: View {
             
         }
         Spacer()
-    }
-}
-struct CalculateView: View {
-    var body: some View {
-        VStack {
-            
-        }
     }
 }
