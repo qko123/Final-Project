@@ -24,21 +24,21 @@ struct Calculate: View {
                         Text($0)
                     }
                 }
-                .pickerStyle(.menu)
+                .pickerStyle(.segmented)
             Text("Number of Errors").bold().frame(width:200, height: 100)
                 Picker("Errors", selection: $selectedErrors) {
                     ForEach(Errors, id: \.self) {
                         Text($0)
                     }
                 }
-                .pickerStyle(.menu)
+                .pickerStyle(.segmented)
             Text("Number of Attempts").bold().frame(width:200, height: 100)
                 Picker("Attempts", selection: $selectedAttempts) {
                     ForEach(Attempts, id: \.self) {
                         Text($0)
                     }
                 }
-                .pickerStyle(.menu).padding()
+                .pickerStyle(.segmented).padding()
             Button("Calculate") {
                 if let kills = Double(selectedKills) {
                     if let errors = Double(selectedErrors) {
