@@ -8,26 +8,41 @@
 import SwiftUI
 
 struct Calculate: View {
-    @State private var killsTextField = ""
-    @State private var errorsTextField = ""
-    @State private var attemptsTextField = ""
-    @State private var kills = 0.0
-    @State private var errors = 0.0
-    @State private var attempts = 0.0
     @State private var percentage = 0.0
+    @State private var selectedKills = "0"
+    let Kills = ["0","1","2","3","4","5","6","7","8","9","10"]
+    @State private var selectedErrors = "0"
+    let Errors = ["0","1","2","3","4","5","6","7","8","9","10"]
+    @State private var selectedAttempts = "0"
+    let Attempts = ["0","1","2","3","4","5","6","7","8","9","10"]
     var body: some View {
         VStack {
             Text("Calculate Hitting %").bold().font(.title).padding()
-            
-                TextField("Number of Kills", text: $killsTextField).padding().multilineTextAlignment(.center)
-                TextField("Number of Errors", text: $errorsTextField).padding().multilineTextAlignment(.center)
-            
-            TextField("Number of Attempts", text: $attemptsTextField).padding()
-                .multilineTextAlignment(.center)
+            Text("Number of Kills").bold().frame(width:200, height: 100)
+                Picker("Kills", selection: $selectedKills) {
+                    ForEach(Kills, id: \.self) {
+                        Text($0)
+                    }
+                }
+                .pickerStyle(.menu)
+            Text("Number of Errors").bold().frame(width:200, height: 100)
+                Picker("Errors", selection: $selectedErrors) {
+                    ForEach(Errors, id: \.self) {
+                        Text($0)
+                    }
+                }
+                .pickerStyle(.menu)
+            Text("Number of Attempts").bold().frame(width:200, height: 100)
+                Picker("Attempts", selection: $selectedAttempts) {
+                    ForEach(Attempts, id: \.self) {
+                        Text($0)
+                    }
+                }
+                .pickerStyle(.menu).padding()
             Button("Calculate") {
-                if let kills = Double(killsTextField) {
-                    if let errors = Double(errorsTextField) {
-                        if let attempts = Double(attemptsTextField) {
+                if let kills = Double(selectedKills) {
+                    if let errors = Double(selectedErrors) {
+                        if let attempts = Double(selectedAttempts) {
                             percentage = ((kills - errors) / attempts) * 100
                         }
                     }
@@ -35,7 +50,6 @@ struct Calculate: View {
             }
             Text("You have a \(percentage, specifier: "%.2f")% hitting percentage")
         }
-        
     }
 }
 
