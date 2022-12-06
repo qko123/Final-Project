@@ -76,7 +76,6 @@
 		F1DFBAAC292D20E1004BE910 = {
 			isa = PBXGroup;
 			children = (
-				F1DFBAE229350CEB004BE910 /* Kills.swift */,
 				F1DFBAB7292D20E1004BE910 /* Final Project */,
 				F1DFBAC8292D20E2004BE910 /* Final ProjectTests */,
 				F1DFBAD2292D20E2004BE910 /* Final ProjectUITests */,
@@ -97,6 +96,7 @@
 		F1DFBAB7292D20E1004BE910 /* Final Project */ = {
 			isa = PBXGroup;
 			children = (
+				F1DFBAE229350CEB004BE910 /* Kills.swift */,
 				F1DFBAB8292D20E1004BE910 /* Final_ProjectApp.swift */,
 				F1DFBABA292D20E1004BE910 /* ContentView.swift */,
 				F1DFBABC292D20E2004BE910 /* Assets.xcassets */,

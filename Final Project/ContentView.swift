@@ -18,6 +18,7 @@ struct ContentView: View {
                 NavigationLink("What is A Hitting Percentage?", destination: InstructionsView())
                         .bold()
                         .padding()
+                    Text("-------------------------------------")
                     NavigationLink("Calculate Hitting Percentage", destination: Calculate())
                             .bold()
                             .padding()
