@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct Calculate: View {
+    @State private var showingAlert = false
     @State private var imageName = ""
     @State private var TextThing = ""
     @State private var percentage = 0.0
@@ -22,31 +23,37 @@ struct Calculate: View {
         VStack {
             Text("Calculate Hitting %").bold().font(.title).padding()
             Text("Number of Attempts").bold().frame(width:200, height: 100)
-                Picker("Attempts", selection: $selectedAttempts) {
-                    ForEach(Attempts, id: \.self) {
-                        Text($0)
-                    }
+            Picker("Attempts", selection: $selectedAttempts) {
+                ForEach(Attempts, id: \.self) {
+                    Text($0)
                 }
-                .pickerStyle(.segmented)
+            }
+            .pickerStyle(.segmented)
             Text("Number of Kills").bold().frame(width:200, height: 100)
-                Picker("Kills", selection: $selectedKills) {
-                    ForEach(Kills, id: \.self) {
-                        Text($0)
-                    }
+            Picker("Kills", selection: $selectedKills) {
+                ForEach(Kills, id: \.self) {
+                    Text($0)
                 }
-                .pickerStyle(.segmented)
+            }
+            .pickerStyle(.segmented)
             Text("Number of Errors").bold().frame(width:200, height: 100)
-                Picker("Errors", selection: $selectedErrors) {
-                    ForEach(Errors, id: \.self) {
-                        Text($0)
-                    }
+            Picker("Errors", selection: $selectedErrors) {
+                ForEach(Errors, id: \.self) {
+                    Text($0)
                 }
-                .pickerStyle(.segmented)
+            }
+            .pickerStyle(.segmented)
             Button("Calculate") {
                 if let kills = Double(selectedKills) {
                     if let errors = Double(selectedErrors) {
                         if let attempts = Double(selectedAttempts) {
-                            percentage = ((kills - errors) / attempts) * 100
+                            if kills + errors <= attempts {
+                                percentage = ((kills - errors) / attempts) * 100
+                            }
+                            else {
+                                showingAlert = true
+                            }
+                                
                         }
                     }
                 }
@@ -57,11 +64,12 @@ struct Calculate: View {
                     imageName = ""
                 }
             }
-            .disabled((selectedKills > selectedAttempts || selectedErrors > selectedAttempts))
+            .alert("This is impossible. You cannot have more kills and errors than attempts.", isPresented: $showingAlert) {
+                Button("Ok", role: .cancel) {}
+            }
             Text("You have a \(percentage, specifier: "%.2f")% hitting percentage")
             Image(imageName).resizable().frame(width: 150,height: 150)
         }
-        
     }
 }
 
@@ -70,3 +78,4 @@ struct Calculate_Previews: PreviewProvider {
         Calculate()
     }
 }
+
