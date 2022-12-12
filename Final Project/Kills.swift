@@ -13,11 +13,11 @@ struct Calculate: View {
     @State private var TextThing = ""
     @State private var percentage = 0.0
     @State private var selectedKills = "0"
-    let Kills = ["0","1","2","3","4","5","6","7","8","9","10"]
+    let Kills = ["0","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15"]
     @State private var selectedErrors = "0"
-    let Errors = ["0","1","2","3","4","5","6","7","8","9","10"]
+    let Errors = ["0","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15"]
     @State private var selectedAttempts = "0"
-    let Attempts = ["0","1","2","3","4","5","6","7","8","9","10"]
+    let Attempts = ["0","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15"]
     var body: some View {
         
         VStack {
@@ -63,9 +63,12 @@ struct Calculate: View {
                 if percentage > 5 {
                     imageName = ""
                 }
+            
             }
+            .buttonStyle(CustomButtonStyle())
             .alert("This is impossible. You cannot have more kills and errors than attempts.", isPresented: $showingAlert) {
                 Button("Ok", role: .cancel) {}
+                
             }
             Text("You have a \(percentage, specifier: "%.2f")% hitting percentage")
             Image(imageName).resizable().frame(width: 150,height: 150)
@@ -78,4 +81,14 @@ struct Calculate_Previews: PreviewProvider {
         Calculate()
     }
 }
-
+struct CustomButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .frame(width: 100)
+            .font(Font.custom("Marker Felt", size: 24))
+            .padding()
+            .background(.black).opacity(configuration.isPressed ? 0.0 : 1.0)
+            .foregroundColor(.white)
+            .clipShape(RoundedRectangle(cornerRadius: 50))
+    }
+}
