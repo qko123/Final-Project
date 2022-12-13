@@ -11,7 +11,7 @@ struct ContentView: View {
     var body: some View {
             NavigationView {
                 VStack {
-                    Text("VB Hitting % Calculator").bold().font(.title)
+                    Text("VB Hitting % Calculator").bold().font(.title).shadow(radius: 1)
                         .padding()
                     Image("player")
                         .resizable().frame(width: 350, height: 350)
@@ -49,5 +49,16 @@ struct InstructionsView: View {
             
         }
         Spacer()
+    }
+}
+struct CustomButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .frame(width: 100)
+            .font(Font.custom("Marker Felt", size: 24))
+            .padding()
+            .background(.black).opacity(configuration.isPressed ? 0.0 : 1.0)
+            .foregroundColor(.white)
+            .clipShape(RoundedRectangle(cornerRadius: 50))
     }
 }

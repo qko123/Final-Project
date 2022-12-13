@@ -60,10 +60,12 @@ struct Calculate: View {
                 if percentage <= 5 {
                     imageName = "trash"
                 }
-                if percentage > 5 {
+                if percentage > 5 || percentage < 40 {
                     imageName = ""
                 }
-            
+                if percentage >= 40 {
+                    imageName = "WOW!"
+                }
             }
             .buttonStyle(CustomButtonStyle())
             .alert("This is impossible. You cannot have more kills and errors than attempts.", isPresented: $showingAlert) {
@@ -79,16 +81,5 @@ struct Calculate: View {
 struct Calculate_Previews: PreviewProvider {
     static var previews: some View {
         Calculate()
-    }
-}
-struct CustomButtonStyle: ButtonStyle {
-    func makeBody(configuration: Configuration) -> some View {
-        configuration.label
-            .frame(width: 100)
-            .font(Font.custom("Marker Felt", size: 24))
-            .padding()
-            .background(.black).opacity(configuration.isPressed ? 0.0 : 1.0)
-            .foregroundColor(.white)
-            .clipShape(RoundedRectangle(cornerRadius: 50))
     }
 }
