@@ -10,7 +10,6 @@ import SwiftUI
 struct Calculate: View {
     @State private var showingAlert = false
     @State private var imageName = ""
-    @State private var TextThing = ""
     @State private var percentage = 0.0
     @State private var selectedKills = "0"
     let Kills = ["0","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15"]
@@ -60,7 +59,7 @@ struct Calculate: View {
                 if percentage <= 5 {
                     imageName = "trash"
                 }
-                if percentage > 5 || percentage < 40 {
+                if percentage > 5, percentage < 40 {
                     imageName = ""
                 }
                 if percentage >= 40 {
